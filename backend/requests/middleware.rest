@@ -1,0 +1,8 @@
+POST http://localhost:3003/api/notes
+Content-Type: application/json
+
+{
+    "content": "Ensure you leave a blank line above this",
+    "important": true
+}
+
