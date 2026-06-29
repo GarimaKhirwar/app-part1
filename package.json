@@ -2,16 +2,24 @@
   "name": "part1",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development node --watch index.js",
+    "test": "cross-env  NODE_ENV=test node --test",
     "lint": "eslint .",
+    "build:ui": "vite build && xcopy .\\dist .\\backend\\dist /E /I /H /Y",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "preview": "vite preview",
     "server": "json-server -p 3001 db.json"
   },
   "dependencies": {
     "axios": "^1.18.1",
+    "bcrypt": "^6.0.0",
+    "cross-env": "^10.1.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.7.3",
     "react": "^19.2.6",
     "react-dom": "^19.2.6"
   },
@@ -25,6 +33,7 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "json-server": "^1.0.0-beta.15",
+    "supertest": "^7.2.2",
     "vite": "^8.0.12"
   }
 }

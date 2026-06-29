@@ -21,6 +21,14 @@ const requestLogger = (request, response, next) => {
 //  Enable the logger middleware
 app.use(requestLogger)
       
+app.get('/api/notes', async (request, response, next) => {
+  try {
+    const notes = await Note.find({})
+    response.json(notes)
+  } catch (error) {
+    next(error)
+  }
+})
 
 app.get('/api/notes/:id', (request, response, next) => {
   Note.findById(request.params.id)
