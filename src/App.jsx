@@ -78,14 +78,13 @@ const App = () => {
 
 const handleLogin = async (event) => {
     event.preventDefault()
-  }
-    
+
     try {
       const user = await loginService.login({ username, password })
-      
+
       window.localStorage.setItem(
         'loggedNoteappUser', JSON.stringify(user)
-      ) 
+      )
       noteService.setToken(user.token)
       setUser(user)
       setUsername('')
@@ -96,6 +95,7 @@ const handleLogin = async (event) => {
         setErrorMessage(null)
       }, 5000)
     }
+  }
 
   const loginForm = () => (
     <form onSubmit={handleLogin}>
