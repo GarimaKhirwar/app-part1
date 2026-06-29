@@ -1,0 +1,3 @@
+add tests for login and look for any incomplete or optional part
+ Our main component App is at the moment way too large. The changes we did now are a clear sign that the forms should be refactored into their own components. 
+ Now a user stays logged in to the application forever. We should probably add a logout functionality, which removes the login details from the local storage. We will however leave it as an exercise.
